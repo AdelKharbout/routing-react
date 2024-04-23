@@ -1,0 +1,9 @@
+.product-details-container {
+    position: fixed;
+    top: 50px;
+}
+.product-details-content {
+    position: fixed;
+    top: 200px;
+}
+
