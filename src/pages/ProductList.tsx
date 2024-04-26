@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import {Link, LoaderFunction, useLoaderData} from "react-router-dom";
 
-const productList = [
-    { id: 1, name: 'Product 1', description: 'Description of Product 1' },
-    { id: 2, name: 'Product 2', description: 'Description of Product 2' },
-    { id: 3, name: 'Product 3', description: 'Description of Product 3' },
-    { id: 4, name: 'Product 4', description: 'Description of Product 4' },
-    { id: 5, name: 'Product 5', description: 'Description of Product 5' }
-];
-const ProductList = () => {
+export type Product = {
+    id: number,
+    name: string,
+}
+const loader: LoaderFunction = async function getData() {
+    return fetch('http://localhost:3000/products')
 
+}
+
+export default function ProductList() {
+    const productList: Product[] = useLoaderData() as Product[];
 
     return (
         <div>
@@ -26,4 +28,4 @@ const ProductList = () => {
     );
 }
 
-export default ProductList;
+ProductList.loader = loader;

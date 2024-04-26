@@ -1,6 +1,12 @@
-import {useParams} from "react-router-dom";
+import {LoaderFunction, useParams} from "react-router-dom";
 import '../assets/ProductDetails.css';
+
+const loader: LoaderFunction = async function getData() {
+    return fetch('http://localhost:3000/products')
+
+}
 export default function ProductDetails() {
+
     const {productId} = useParams();
 
     return (
@@ -11,3 +17,5 @@ export default function ProductDetails() {
 
     )
 }
+
+ProductDetails.loader = loader;

@@ -1,4 +1,6 @@
 import {isRouteErrorResponse, useRouteError} from "react-router-dom";
+import "../components/Navbar.tsx";
+import Navbar from "../components/Navbar.tsx";
 
 const ErrorPage = () => {
     const error = useRouteError();
@@ -16,13 +18,16 @@ const ErrorPage = () => {
     }
 
     return (
-        <div id='error-page' className='flex flex-col gap-8 justify-center items-center h-screen'>
-            <h1 className='text-4xl font-bold'>Oops!</h1>
-            <p>Sorry, an unexpected error has occurred.</p>
-            <p className='text-slate-400'>
-                <i>{errorMessage}</i>
-            </p>
-        </div>
+        <>
+            <Navbar/>
+            <div id='error-page' className='flex flex-col gap-8 justify-center items-center h-screen'>
+                <h1 className='text-4xl font-bold'>Oops!</h1>
+                <p>Sorry, an unexpected error has occurred.</p>
+                <p className='text-slate-400'>
+                    <i>{errorMessage}</i>
+                </p>
+            </div>
+        </>
     );
 };
 
