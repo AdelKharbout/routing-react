@@ -4,17 +4,8 @@ import {Product} from "./ProductList.tsx";
 
 const loader: LoaderFunction = function getData({params}) {
     const {productId} = params;
-    return fetch(`http://localhost:3000/products/${productId}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch product details');
-            }
-            return response.json();
-        })
-        .catch(error => {
-            console.error('Error fetching product details:', error);
-            throw error;
-        });
+    return fetch(`http://localhost:3000/products/${productId}`);
+
 }
 
 export default function ProductDetails() {
